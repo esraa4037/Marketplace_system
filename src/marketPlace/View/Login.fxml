@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="487.0" prefWidth="762.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.LoginViewControl">
    <children>
-      <Pane layoutX="14.0" layoutY="36.0" prefHeight="475.0" prefWidth="301.0" style="-fx-background-color: #095f92;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="475.0" prefWidth="301.0" style="-fx-background-color:  #4f77b3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="154.0" fitWidth="176.0" layoutX="65.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                <image>
