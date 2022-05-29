@@ -11,28 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="487.0" prefWidth="762.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.LoginViewControl">
+<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="742.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.LoginViewControl">
    <children>
-      <Pane prefHeight="475.0" prefWidth="301.0" style="-fx-background-color:  #4f77b3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="154.0" fitWidth="176.0" layoutX="65.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/E:/parallel_project/Marketplace_system/src/marketPlace/Image/126083.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="99.0" layoutY="248.0" prefHeight="28.0" prefWidth="69.0" text="Online" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="99.0" layoutY="262.0" prefHeight="57.0" prefWidth="154.0" text="Shopping" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutX="340.0" layoutY="84.0" prefHeight="481.0" prefWidth="402.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="327.0" layoutY="84.0" prefHeight="487.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="userNameTextField" layoutX="51.0" layoutY="143.0" prefHeight="48.0" prefWidth="301.0" promptText="Enter user name" />
             <PasswordField fx:id="pwField" layoutX="51.0" layoutY="202.0" prefHeight="48.0" prefWidth="301.0" promptText="Enter password" />
@@ -40,6 +21,25 @@
             <ComboBox fx:id="userModeComboBox" layoutX="51.0" layoutY="266.0" onAction="#selectUserMode" prefHeight="34.0" prefWidth="301.0" promptText="Select user mode" />
             <Label fx:id="errorMassageLabel" layoutX="59.0" layoutY="313.0" prefHeight="21.0" prefWidth="273.0" textFill="RED" />
             <Button fx:id="signUpBotton" layoutX="164.0" layoutY="370.0" mnemonicParsing="false" onAction="#signUp" prefHeight="28.0" prefWidth="76.0" text="Sign up" />
+         </children>
+      </Pane>
+      <Pane layoutX="162.0" layoutY="57.0" prefHeight="487.0" prefWidth="347.0" style="-fx-background-color: #ffa500;" styleClass="pane2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="172.0" layoutX="46.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" styleClass="pic">
+               <image>
+                  <Image url="file:/E:/parallel_project/Marketplace_system/src/marketPlace/Image/3649552%20-%20Copy.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="64.0" layoutY="279.0" prefHeight="28.0" prefWidth="69.0" text="Online">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="293.0" prefHeight="57.0" prefWidth="154.0" text="Shopping">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

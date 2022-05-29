@@ -3,12 +3,12 @@
     -fx-background-radius : 10px;
 }
 .button1:hover {
-    -fx-background-color :  #2F2B43;
-    -fx-opacity : 0.5;
+    -fx-background-color :  #ffffff;
+    -fx-opacity : 0.3;
     -fx-background-radius : 30px;
 }
 .button1:pressed {
-    -fx-background-color : #ffffff;
+    -fx-background-color : #2F2B43;
     -fx-background-radius : 30px;
 }
 
@@ -17,11 +17,27 @@
     -fx-background-radius : 10px;
 }
 .button2:hover {
-    -fx-background-color : #2F2B43;
-    -fx-opacity : 0.5;
+    -fx-background-color : #ffffff;
+    -fx-opacity : 0.3;
     -fx-background-radius : 40px;
 }
 .button2:pressed {
-    -fx-background-color : #ffffff;
+    -fx-background-color : #2F2B43;
     -fx-background-radius : 40px;
 }
+.pane1 {
+    -fx-background-color : #ff5733;
+    -fx-background-radius : 5000px;
+}
+.pane2 {
+    /* -fx-background-color : #ffa500; */
+    -fx-background-radius: 0px 250px 250px 0px ;
+}
+.pane3 {
+     -fx-background-image: url("E:\parallel_project\Marketplace_system\src\marketPlace\Image\d77c9195-65e0-415d-9bfe-5bae48b02b54.jpg");
+}
+.pic {
+    -fx-background-color : #ffffff;
+    -fx-background-radius : 100px;
+}
+
