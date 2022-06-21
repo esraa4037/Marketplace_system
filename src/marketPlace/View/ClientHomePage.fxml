@@ -11,9 +11,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="779.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.ClientHomeViewControl">
    <children>
-      <Pane layoutX="14.0" layoutY="21.0" prefHeight="481.0" prefWidth="227.0" style="-fx-background-color: #ffa500;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="14.0" layoutY="21.0" prefHeight="481.0" prefWidth="227.0" style="-fx-background-color: #FF8C33;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane layoutY="153.0" prefHeight="59.0" prefWidth="227.0" style="-fx-background-color: #FF8C33;">
+            <Pane layoutY="153.0" prefHeight="59.0" prefWidth="227.0" style="-fx-background-color: #ffa500;">
                <children>
                   <Text fx:id="accountName" layoutX="4.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="CENTER" wrappingWidth="219.50877380371094">
                      <font>
@@ -52,7 +52,7 @@
       </Pane>
       <Pane layoutX="227.0" prefHeight="481.0" prefWidth="515.0" style="-fx-background-color: #dddddd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="335.0" fitWidth="506.0" layoutX="30.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+            <ImageView fitHeight="296.0" fitWidth="462.0" layoutX="54.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
                <image>
                   <Image url="file:/E:/parallel_project/Marketplace_system/src/marketPlace/Image/d77c9195-65e0-415d-9bfe-5bae48b02b54.jpg" />
                </image>

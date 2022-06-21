@@ -4,7 +4,7 @@
 }
 .button1:hover {
     -fx-background-color :  #ffffff;
-    -fx-opacity : 0.3;
+    -fx-opacity : 0.6;
     -fx-background-radius : 30px;
 }
 .button1:pressed {
@@ -30,8 +30,8 @@
     -fx-background-radius : 5000px;
 }
 .pane2 {
-    /* -fx-background-color : #ffa500; */
-    -fx-background-radius: 0px 250px 250px 0px ;
+    -fx-background-radius:  0em 100em 100em 0em/ 200em;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
 }
 .pane3 {
      -fx-background-image: url("E:\parallel_project\Marketplace_system\src\marketPlace\Image\d77c9195-65e0-415d-9bfe-5bae48b02b54.jpg");
