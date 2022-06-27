@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import marketPlace.Controller.LoginController;
@@ -44,6 +45,7 @@ public class LoginViewControl implements Initializable{
 	public void initialize(URL url, ResourceBundle rb) {
 		ObservableList<String> list = FXCollections.observableArrayList("client mode", "server mode");
 		userModeComboBox.setItems(list);
+		
 	}
 	
 	public void selectUserMode(Event e) {

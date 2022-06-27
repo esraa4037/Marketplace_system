@@ -17,14 +17,20 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ClientHomeController;
 
-public class ClientHomeViewControl implements Initializable{
+public class ClientHomeViewControl implements Initializable {
 	@FXML
 	private Text accountName;
 	@FXML
 	private Button logOutButton;
+	@FXML
+	private Button products;
+	@FXML
+	private Button myCart;
+	@FXML
+	private Button myProfile;
 	private SimpleStringProperty acName = new SimpleStringProperty(" ");
 	private ClientHomeController clcontroller = new ClientHomeController();
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		String firstName = clcontroller.getFirst(LoginViewControl.account);
@@ -33,15 +39,58 @@ public class ClientHomeViewControl implements Initializable{
 		acName.set(name);
 		accountName.textProperty().bind(acName);
 	}
-	
+
 	public void logOut(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
-		
+
 		Parent root = FXMLLoader.load(getClass().getResource("/marketPlace/View/Login.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+	}
+
+	public void productClick(Event e) {
+		Node node = (Node) e.getSource();
+		Stage stage = (Stage) node.getScene().getWindow();
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource("/marketPlace/View/ProductPage.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+
+	public void myCartclick(Event e) throws IOException {
+		Node node = (Node) e.getSource();
+		Stage stage = (Stage) node.getScene().getWindow();
+		Parent root;
+		
+			root = FXMLLoader.load(getClass().getResource("/marketPlace/View/MyCartPage.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		
+	}
+
+	public void myProfileclick(Event e) {
+		Node node = (Node) e.getSource();
+		Stage stage = (Stage) node.getScene().getWindow();
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource("/marketPlace/View/MyProfilePage.fxml"));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 	}
 
 }
