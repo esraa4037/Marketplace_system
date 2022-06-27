@@ -33,11 +33,18 @@
     -fx-background-radius:  0em 100em 100em 0em/ 200em;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
 }
-.pane3 {
-     -fx-background-image: url("E:\parallel_project\Marketplace_system\src\marketPlace\Image\d77c9195-65e0-415d-9bfe-5bae48b02b54.jpg");
-}
 .pic {
     -fx-background-color : #ffffff;
     -fx-background-radius : 100px;
 }
-
+.transparent {
+    -fx-background-color : rgba(0, 0, 0, 0);
+}
+.rounded{
+    -fx-border-radius : 50;
+    -fx-border-color : #D7D7D7;
+}
+.selected {
+    -fx-background-color : #2F2B43;
+    -fx-opacity : 0.2;
+}
