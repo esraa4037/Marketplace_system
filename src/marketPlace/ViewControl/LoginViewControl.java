@@ -20,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import marketPlace.Controller.LoginController;
+
 import marketPlace.Model.ClientAccount;
 import marketPlace.Model.ServerAccount;
 
@@ -40,6 +41,7 @@ public class LoginViewControl implements Initializable {
 	
 	static ClientAccount cAccount = new ClientAccount();
 	static ServerAccount sAccount = new ServerAccount();
+
 	LoginController lc = new LoginController();
 
 	@Override
@@ -54,8 +56,8 @@ public class LoginViewControl implements Initializable {
 	}
 
 	public void isSign(Event e) throws IOException {
-
 		if (userMode == null) {
+
 			errorMassageLabel.setText("You should select user mode");
 		}
 		if (userMode.equals("client mode")) {
@@ -74,6 +76,7 @@ public class LoginViewControl implements Initializable {
 			sAccount.setUserName(userNameTextField.getText());
 			sAccount.setPassword(pwField.getText());
 			if(lc.isServer(sAccount)) {
+
 			Node node = (Node) e.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
 

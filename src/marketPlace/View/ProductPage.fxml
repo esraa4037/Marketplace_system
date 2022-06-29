@@ -40,14 +40,14 @@
             </Button>
             <ImageView fitHeight="116.0" fitWidth="153.0" layoutX="41.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/E:/parallel_project/Marketplace_system/src/marketPlace/Image/menu-login%20-%20Copy.png" />
+                  <Image url="@../Image/menu-login%20-%20Copy.png" />
                </image>
             </ImageView>
             <Button fx:id="logOutButton" layoutX="182.0" layoutY="2.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="42.0" styleClass="button2">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/E:/parallel_project/Marketplace_system/src/marketPlace/Image/3580154.png" />
+                        <Image url="@../Image/3580154.png" />
                      </image>
                   </ImageView>
                </graphic>

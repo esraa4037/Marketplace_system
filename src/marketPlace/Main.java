@@ -14,6 +14,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/marketPlace/View/Login.fxml"));
 			Scene scene = new Scene(root);
 //			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Market Place");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
