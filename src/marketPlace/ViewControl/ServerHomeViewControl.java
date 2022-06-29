@@ -12,10 +12,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ServerHomeController;
-import marketPlace.Model.ServerAccount;
 
 public class ServerHomeViewControl implements Initializable {	
 	
@@ -27,7 +27,7 @@ public class ServerHomeViewControl implements Initializable {
 	private Button btnReports;
 	@FXML
 	private Button logOutButton;
-	
+		
 	ServerHomeController shcontroller = new ServerHomeController();
 	
 	@Override
@@ -38,7 +38,7 @@ public class ServerHomeViewControl implements Initializable {
 	public void logOut(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
-
+		
 		Parent root = FXMLLoader.load(getClass().getResource("/marketPlace/View/Login.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
