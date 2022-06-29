@@ -32,7 +32,7 @@ public class ServerHomeViewControl implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.saccount)+ " " + shcontroller.getServerLastName(LoginViewControl.saccount));
+		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
 	}
 	
 	public void logOut(Event e) throws IOException {
