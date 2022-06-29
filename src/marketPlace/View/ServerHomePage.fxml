@@ -22,11 +22,11 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="btnHistory" layoutY="257.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="227.0" styleClass="button1" text="View Transactions History" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="btnHistory" layoutY="257.0" mnemonicParsing="false" onAction="#isTransView" prefHeight="79.0" prefWidth="227.0" styleClass="button1" text="View Transactions History" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button fx:id="btnReports" layoutY="362.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="Generate Reports">
+            <Button fx:id="btnReports" layoutY="362.0" mnemonicParsing="false" onAction="#isGenReports" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="Generate Reports">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
@@ -35,7 +35,7 @@
                   <Image url="@../Image/servericon6.png" />
                </image>
             </ImageView>
-            <Button fx:id="logOutButton" layoutX="182.0" layoutY="2.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="42.0" styleClass="button2">
+            <Button fx:id="logOutButton" layoutX="182.0" layoutY="2.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="42.0" styleClass="button2">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
