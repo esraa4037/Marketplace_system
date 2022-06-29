@@ -33,8 +33,8 @@ public class ClientHomeViewControl implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		String firstName = clcontroller.getFirst(LoginViewControl.account);
-		String lastName = clcontroller.getLast(LoginViewControl.account);
+		String firstName = clcontroller.getFirst(LoginViewControl.cAccount);
+		String lastName = clcontroller.getLast(LoginViewControl.cAccount);
 		String name = firstName + " " + lastName;
 		acName.set(name);
 		accountName.textProperty().bind(acName);

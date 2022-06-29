@@ -1,13 +1,13 @@
 package marketPlace.Controller;
 
-import marketPlace.Model.UserAccount;
+import marketPlace.Model.ClientAccount;
 
 public class ClientHomeController {
-	public String getFirst(UserAccount acc) {
+	public String getFirst(ClientAccount acc) {
 		acc.setFirstName("Esraa");
 		return acc.getFirstName();
 	}
-	public String getLast(UserAccount acc) {
+	public String getLast(ClientAccount acc) {
 		acc.setLastName("Mohamed");
 		return acc.getLastName();
 	}
