@@ -1,10 +1,10 @@
 package marketPlace.Controller;
+import marketPlace.Model.ClientAccount;
 import marketPlace.Model.ServerAccount;
-import marketPlace.Model.UserAccount;
 
 public class LoginController {
 	
-	public boolean isClient(UserAccount account) {
+	public boolean isClient(ClientAccount account) {
 		if (account.getUserName().equals("esraa") && account.getPassword().equals("1234")) {
 			return true;
 		}

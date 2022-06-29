@@ -1,11 +1,19 @@
 package marketPlace.Model;
 
-public class UserAccount {
+public class ClientAccount {
+	private int id;
 	private String userName;
 	private String password;
 	private String firstName;
 	private String lastName;
+	private int cartId;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int clinetId) {
+		this.id = clinetId;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -30,5 +38,10 @@ public class UserAccount {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
 }
