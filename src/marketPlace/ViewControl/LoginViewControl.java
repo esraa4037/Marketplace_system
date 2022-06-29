@@ -21,6 +21,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import marketPlace.Controller.LoginController;
+import marketPlace.Model.ServerAccount;
 import marketPlace.Model.UserAccount;
 
 public class LoginViewControl implements Initializable{
@@ -39,6 +40,7 @@ public class LoginViewControl implements Initializable{
 	private ComboBox<String> userModeComboBox;
 	
 	static UserAccount account = new UserAccount();
+	static ServerAccount saccount = new ServerAccount();
 	LoginController lc = new LoginController();
 	
 	@Override
@@ -55,6 +57,8 @@ public class LoginViewControl implements Initializable{
 	public void isSign(Event e) throws IOException {
 		account.setUserName(userNameTextField.getText());
 		account.setPassword(pwField.getText());
+		saccount.setUserName(userNameTextField.getText());
+		saccount.setPassword(pwField.getText());
 		if(userMode == null) {
 			errorMassageLabel.setText("You should select user mode");
 		}
@@ -67,7 +71,7 @@ public class LoginViewControl implements Initializable{
 			stage.setScene(scene);
 			stage.show();
 		}
-		else if(lc.isServer(account) && userMode.equals("server mode")) {
+		else if(lc.isServer(saccount) && userMode.equals("server mode")) {
 			Node node = (Node) e.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
 			

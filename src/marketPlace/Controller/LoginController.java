@@ -1,4 +1,5 @@
 package marketPlace.Controller;
+import marketPlace.Model.ServerAccount;
 import marketPlace.Model.UserAccount;
 
 public class LoginController {
@@ -10,7 +11,7 @@ public class LoginController {
 		return false;
 	}
 	
-	public boolean isServer(UserAccount account) {
+	public boolean isServer(ServerAccount account) {
 		if (account.getUserName().equals("admin") && account.getPassword().equals("1234")) {
 			return true;
 		}
