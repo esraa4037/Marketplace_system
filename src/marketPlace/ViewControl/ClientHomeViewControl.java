@@ -33,13 +33,17 @@ public class ClientHomeViewControl implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		initializeAccountName();
+	}
+
+	public void initializeAccountName() {
 		String firstName = clcontroller.getFirst(LoginViewControl.cAccount);
 		String lastName = clcontroller.getLast(LoginViewControl.cAccount);
 		String name = firstName + " " + lastName;
 		acName.set(name);
 		accountName.textProperty().bind(acName);
 	}
-
+	
 	public void logOut(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();

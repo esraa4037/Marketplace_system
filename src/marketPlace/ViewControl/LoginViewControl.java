@@ -37,7 +37,7 @@ public class LoginViewControl implements Initializable {
 	private Button signUpBotton;
 	@FXML
 	private ComboBox<String> userModeComboBox;
-	
+
 	static ClientAccount cAccount = new ClientAccount();
 	static ServerAccount sAccount = new ServerAccount();
 	LoginController lc = new LoginController();
@@ -51,6 +51,7 @@ public class LoginViewControl implements Initializable {
 
 	public void selectUserMode(Event e) {
 		userMode = userModeComboBox.getSelectionModel().getSelectedItem().toString();
+		
 	}
 
 	public void isSign(Event e) throws IOException {
@@ -69,23 +70,25 @@ public class LoginViewControl implements Initializable {
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
+			} else {
+				errorMassageLabel.setText("User name or password is wrong");
 			}
 		} else if (userMode.equals("server mode")) {
 			sAccount.setUserName(userNameTextField.getText());
 			sAccount.setPassword(pwField.getText());
-			if(lc.isServer(sAccount)) {
-			Node node = (Node) e.getSource();
-			Stage stage = (Stage) node.getScene().getWindow();
+			if (lc.isServer(sAccount)) {
+				Node node = (Node) e.getSource();
+				Stage stage = (Stage) node.getScene().getWindow();
 
-			Parent root = FXMLLoader.load(getClass().getResource("/marketPlace/View/ServerHomePage.fxml"));
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+				Parent root = FXMLLoader.load(getClass().getResource("/marketPlace/View/ServerHomePage.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} else {
+				errorMassageLabel.setText("User name or password is wrong");
+
 			}
-		} else {
-			errorMassageLabel.setText("User name or password is wrong");
-		}
-
+		} 
 	}
 
 	public void signUp(Event e) throws IOException {

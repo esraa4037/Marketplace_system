@@ -4,11 +4,12 @@
 }
 .button1:hover {
     -fx-background-color :  #ffffff;
-    -fx-opacity : 0.6;
+    -fx-opacity : 0.5;
     -fx-background-radius : 30px;
 }
 .button1:pressed {
-    -fx-background-color : #2F2B43;
+    -fx-background-color : #feede2;
+    -fx-opacity : 0.3;
     -fx-background-radius : 30px;
 }
 
@@ -18,13 +19,14 @@
 }
 .button2:hover {
     -fx-background-color : #ffffff;
-    -fx-opacity : 0.3;
+    -fx-opacity : 0.7;
     -fx-background-radius : 40px;
 }
 .button2:pressed {
     -fx-background-color : #2F2B43;
     -fx-background-radius : 40px;
 }
+
 .pane1 {
     -fx-background-color : #ff5733;
     -fx-background-radius : 5000px;
