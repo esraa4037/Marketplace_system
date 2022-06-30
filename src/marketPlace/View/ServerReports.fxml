@@ -50,56 +50,53 @@
             <ComboBox fx:id="comboReports" layoutY="330.0" onAction="#selectReport" prefHeight="42.0" prefWidth="242.0" promptText="Choose Report" />
          </children>
       </Pane>
-      <Pane layoutX="241.0" prefHeight="575.0" prefWidth="784.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="241.0" layoutY="75.0" prefHeight="500.0" prefWidth="784.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <VBox layoutY="75.0" prefHeight="500.0" prefWidth="784.0">
-               <children>
-                  <Label prefHeight="24.0" prefWidth="307.0" text="Server Reports" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="Cambria Bold" size="18.0" />
-                     </font>
-                     <padding>
-                        <Insets left="20.0" top="20.0" />
-                     </padding>
-                  </Label>
-                  <TableView fx:id="table" prefHeight="517.0" prefWidth="784.0" VBox.vgrow="ALWAYS">
-                    <columns>
-                      <TableColumn fx:id="col1" prefWidth="65.0" text="Client ID" />
-                      <TableColumn fx:id="col2" prefWidth="123.0" text="Client Name" />
-                        <TableColumn fx:id="col3" prefWidth="66.0" text="Order ID" />
-                        <TableColumn fx:id="col4" prefWidth="74.0" text="Product ID" />
-                    </columns>
-                  </TableView>
-               </children>
-            </VBox>
-            <HBox layoutX="180.0" layoutY="24.0" prefHeight="32.0" prefWidth="307.0" styleClass="rounded">
-               <children>
-                  <Button fx:id="btnBack" mnemonicParsing="false" onAction="#backToServerHome" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" rotate="180.0">
-                           <image>
-                              <Image url="@../Image/rightarrowicon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <TextField fx:id="txtSearch" prefHeight="36.0" prefWidth="273.0" promptText="Search with Client ID" styleClass="transparent">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
-                  <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0">
-                           <image>
-                              <Image url="@../Image/Search-Button-PNG-HD-Quality.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </HBox>
-            <Label fx:id="lblMsg" layoutX="184.0" layoutY="56.0" prefHeight="39.0" prefWidth="299.0" textAlignment="CENTER" textFill="RED" />
-         </children></Pane>
+            <Label prefHeight="24.0" prefWidth="307.0" text="Server Reports" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <TableView fx:id="table" prefHeight="517.0" prefWidth="784.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="col1" prefWidth="65.0" text="Client ID" />
+                <TableColumn fx:id="col2" prefWidth="123.0" text="Client Name" />
+                  <TableColumn fx:id="col3" prefWidth="66.0" text="Order ID" />
+                  <TableColumn fx:id="col4" prefWidth="74.0" text="Product ID" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <HBox layoutX="421.0" layoutY="24.0" prefHeight="32.0" prefWidth="307.0" styleClass="rounded">
+         <children>
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#backToServerHome" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" rotate="180.0">
+                     <image>
+                        <Image url="@../Image/rightarrowicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="txtSearch" prefHeight="36.0" prefWidth="273.0" promptText="Search with Client ID" styleClass="transparent">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../Image/Search-Button-PNG-HD-Quality.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="lblMsg" layoutX="425.0" layoutY="56.0" prefHeight="39.0" prefWidth="299.0" textAlignment="CENTER" textFill="RED" />
    </children>
 </AnchorPane>
