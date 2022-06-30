@@ -50,11 +50,11 @@
             <ComboBox fx:id="comboReports" layoutY="330.0" onAction="#selectReport" prefHeight="42.0" prefWidth="242.0" promptText="Choose Report" />
          </children>
       </Pane>
-      <Pane layoutX="241.0" prefHeight="575.0" prefWidth="664.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="241.0" prefHeight="575.0" prefWidth="784.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox layoutY="75.0" prefHeight="500.0" prefWidth="784.0">
                <children>
-                  <Label prefHeight="24.0" prefWidth="307.0" text="Server Reports">
+                  <Label prefHeight="24.0" prefWidth="307.0" text="Server Reports" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="Cambria Bold" size="18.0" />
                      </font>
