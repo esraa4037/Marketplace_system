@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -63,21 +62,14 @@
                         <Insets left="20.0" top="20.0" />
                      </padding>
                   </Label>
-                  <ScrollPane prefHeight="459.0" prefWidth="684.0">
-                     <content>
-                        <TableView fx:id="table" prefHeight="454.0" prefWidth="782.0">
-                          <columns>
-                            <TableColumn fx:id="col1" prefWidth="65.0" text="Client ID" />
-                            <TableColumn fx:id="col2" prefWidth="123.0" text="Client Name" />
-                              <TableColumn fx:id="col3" prefWidth="66.0" text="Order ID" />
-                              <TableColumn fx:id="col4" prefWidth="74.0" text="Product ID" />
-                          </columns>
-                        </TableView>
-                     </content>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </ScrollPane>
+                  <TableView fx:id="table" prefHeight="517.0" prefWidth="784.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="col1" prefWidth="65.0" text="Client ID" />
+                      <TableColumn fx:id="col2" prefWidth="123.0" text="Client Name" />
+                        <TableColumn fx:id="col3" prefWidth="66.0" text="Order ID" />
+                        <TableColumn fx:id="col4" prefWidth="74.0" text="Product ID" />
+                    </columns>
+                  </TableView>
                </children>
             </VBox>
             <HBox layoutX="180.0" layoutY="24.0" prefHeight="32.0" prefWidth="307.0" styleClass="rounded">
