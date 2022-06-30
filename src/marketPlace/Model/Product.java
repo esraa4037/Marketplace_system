@@ -7,7 +7,8 @@ public class Product {
 	private String supplierName;
 	private double price;
 	private String imageSrc;
-
+	private int categoryId;
+	
 	public int getId() {
 		return id;
 	}
@@ -55,5 +56,14 @@ public class Product {
 	public void setImageSrc(String imageSrc) {
 		this.imageSrc = imageSrc;
 	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+	
 
 }

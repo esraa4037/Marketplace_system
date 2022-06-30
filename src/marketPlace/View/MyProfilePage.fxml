@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="779.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="779.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.MyProfileViewController">
    <children>
       <Pane layoutX="34.0" layoutY="12.0" prefHeight="513.0" prefWidth="227.0" style="-fx-background-color: #FF8C33;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,17 +21,17 @@
                   </Text>
                </children>
             </Pane>
-            <Button layoutY="229.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="Products">
+            <Button fx:id="product" layoutY="229.0" mnemonicParsing="false" onAction="#productClick" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="Products">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutY="288.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="My Profile">
+            <Button fx:id="MyProfile" layoutY="288.0" mnemonicParsing="false" onAction="#myProfileclick" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="My Profile">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutY="347.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="My Cart">
+            <Button fx:id="MyCart" layoutY="347.0" mnemonicParsing="false" onAction="#myCartclick" prefHeight="59.0" prefWidth="227.0" styleClass="button1" text="My Cart">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
