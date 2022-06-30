@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -49,6 +50,8 @@ public class ServerReportsViewControl implements Initializable {
 	private TableColumn col3;
 	@FXML
 	private TableColumn col4;
+	@FXML
+	private TextField txtSearch;
 	private String comboChoice;
 	
 	ServerHomeController shcontroller = new ServerHomeController();
@@ -64,6 +67,8 @@ public class ServerReportsViewControl implements Initializable {
 		col2.setVisible(false);
 		col3.setVisible(false);
 		col4.setVisible(false);
+		
+		txtSearch.setPromptText("Search");
 		
 		List<BestSellerProduct> bslist1 = (new BestSellerProductController()).getListOfBestProducts();
 		List<ProductStock> bslist5 = (new ProductStockController()).getListOfProductStock();
@@ -93,7 +98,7 @@ public class ServerReportsViewControl implements Initializable {
 			col3.setText("Product Name");
 			col3.setMinWidth(200);
 			
-			
+			txtSearch.setPromptText("Search with Category Name");
 			
 			//TableView<BestSellerProduct> table;
 //			List<BestSellerProduct> bslist = (new BestSellerProductController()).getListOfBestProducts();
@@ -121,6 +126,7 @@ public class ServerReportsViewControl implements Initializable {
 			col3.setVisible(true);
 			col3.setText("Total Number of Orders");
 			col3.setMinWidth(200);
+			txtSearch.setPromptText("Search with Client ID");
 			
 			table.setItems(FXCollections.observableArrayList());
 			
@@ -138,6 +144,9 @@ public class ServerReportsViewControl implements Initializable {
 			col4.setVisible(true);
 			col4.setText("Supplier");
 			col4.setMinWidth(200);
+			
+			txtSearch.setPromptText("Search with Product ID");
+			
 			
 			col1.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("id"));
 			col2.setCellValueFactory(new PropertyValueFactory<ProductStock, String>("name"));
