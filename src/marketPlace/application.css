@@ -1,0 +1,52 @@
+.button1 {
+    -fx-background-color : transparent;
+    -fx-background-radius : 10px;
+}
+.button1:hover {
+    -fx-background-color :  #ffffff;
+    -fx-opacity : 0.5;
+    -fx-background-radius : 30px;
+}
+.button1:pressed {
+    -fx-background-color : #feede2;
+    -fx-opacity : 0.3;
+    -fx-background-radius : 30px;
+}
+
+.button2 {
+    -fx-background-color : transparent;
+    -fx-background-radius : 10px;
+}
+.button2:hover {
+    -fx-background-color : #ffffff;
+    -fx-opacity : 0.7;
+    -fx-background-radius : 40px;
+}
+.button2:pressed {
+    -fx-background-color : #2F2B43;
+    -fx-background-radius : 40px;
+}
+
+.pane1 {
+    -fx-background-color : #ff5733;
+    -fx-background-radius : 5000px;
+}
+.pane2 {
+    -fx-background-radius:  0em 100em 100em 0em/ 200em;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+.pic {
+    -fx-background-color : #ffffff;
+    -fx-background-radius : 100px;
+}
+.transparent {
+    -fx-background-color : rgba(0, 0, 0, 0);
+}
+.rounded{
+    -fx-border-radius : 50;
+    -fx-border-color : #D7D7D7;
+}
+.selected {
+    -fx-background-color : #2F2B43;
+    -fx-opacity : 0.2;
+}

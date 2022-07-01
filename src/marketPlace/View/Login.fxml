@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="742.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.LoginViewControl">
+   <children>
+      <Pane layoutX="327.0" layoutY="84.0" prefHeight="487.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="userNameTextField" layoutX="51.0" layoutY="143.0" prefHeight="48.0" prefWidth="301.0" promptText="Enter user name" />
+            <PasswordField fx:id="pwField" layoutX="51.0" layoutY="202.0" prefHeight="48.0" prefWidth="301.0" promptText="Enter password" />
+            <Button fx:id="signInButton" layoutX="164.0" layoutY="334.0" mnemonicParsing="false" onAction="#isSign" prefHeight="28.0" prefWidth="76.0" text="Sign in" />
+            <ComboBox fx:id="userModeComboBox" layoutX="51.0" layoutY="266.0" onAction="#selectUserMode" prefHeight="34.0" prefWidth="301.0" promptText="Select user mode" />
+            <Label fx:id="errorMassageLabel" layoutX="65.0" layoutY="307.0" prefHeight="21.0" prefWidth="273.0" textFill="RED" />
+            <Button fx:id="signUpBotton" layoutX="164.0" layoutY="370.0" mnemonicParsing="false" onAction="#signUp" prefHeight="28.0" prefWidth="76.0" text="Sign up" />
+         </children>
+      </Pane>
+      <Pane layoutX="162.0" layoutY="57.0" prefHeight="481.0" prefWidth="308.0" style="-fx-background-color: #ffa500;" styleClass="pane2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="172.0" layoutX="59.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" styleClass="pic">
+               <image>
+                  <Image url="@../Image/3649552%20-%20Copy.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="78.0" layoutY="289.0" prefHeight="28.0" prefWidth="69.0" text="Online">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="303.0" prefHeight="57.0" prefWidth="154.0" text="Shopping">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

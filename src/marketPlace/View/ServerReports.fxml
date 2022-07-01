@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="1025.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.ServerReportsViewControl">
+   <children>
+      <Pane layoutX="14.0" layoutY="21.0" prefHeight="513.0" prefWidth="242.0" style="-fx-background-color: #FF8C33;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutY="153.0" prefHeight="59.0" prefWidth="242.0" style="-fx-background-color: #ffa500;">
+               <children>
+                  <Text fx:id="accountName" layoutX="5.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="CENTER" wrappingWidth="233.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button fx:id="btnViewTransactions" layoutY="226.0" mnemonicParsing="false" onAction="#openViewTransactions" prefHeight="84.0" prefWidth="242.0" styleClass="button1" text="View Transactions History" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+            <ImageView fitHeight="116.0" fitWidth="153.0" layoutX="84.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/servericon6.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="logOutButton" layoutX="186.0" layoutY="4.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="42.0" styleClass="button2">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/3580154.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ComboBox fx:id="comboReports" layoutY="330.0" onAction="#selectReport" prefHeight="42.0" prefWidth="242.0" promptText="Choose Report" />
+         </children>
+      </Pane>
+      <VBox layoutX="241.0" layoutY="75.0" prefHeight="500.0" prefWidth="784.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+         <children>
+            <Label prefHeight="24.0" prefWidth="307.0" text="Server Reports" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <TableView fx:id="table" prefHeight="517.0" prefWidth="784.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="col1" prefWidth="65.0" text="Client ID" />
+                <TableColumn fx:id="col2" prefWidth="123.0" text="Client Name" />
+                  <TableColumn fx:id="col3" prefWidth="66.0" text="Order ID" />
+                  <TableColumn fx:id="col4" prefWidth="74.0" text="Product ID" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <HBox layoutX="421.0" layoutY="24.0" prefHeight="32.0" prefWidth="307.0" styleClass="rounded">
+         <children>
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#backToServerHome" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" rotate="180.0">
+                     <image>
+                        <Image url="@../Image/rightarrowicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="txtSearch" prefHeight="36.0" prefWidth="273.0" promptText="Search with Client ID" styleClass="transparent">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../Image/Search-Button-PNG-HD-Quality.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="lblMsg" layoutX="425.0" layoutY="56.0" prefHeight="39.0" prefWidth="299.0" textAlignment="CENTER" textFill="RED" />
+   </children>
+</AnchorPane>
