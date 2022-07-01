@@ -201,3 +201,4 @@ alter table server add username varchar(15) not null ;
 insert into server value ('Maram','1','1234','Nabil','','admin');
 use ya;
 select * from product;
+ALTER TABLE server DROP email;
