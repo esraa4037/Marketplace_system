@@ -8,10 +8,28 @@ public class ClientAccount {
 	private String lastName;
 	private int cartId;
 	private String email;
-        private String phone;
-        private int postalCode;
+    	private String phone;
+    	private int postalCode;
+    	private int balance;
+    	private String address;
 
-    public String getEmail() {
+    public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
         return email;
     }
 
