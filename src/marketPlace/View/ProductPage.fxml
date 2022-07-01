@@ -60,12 +60,12 @@
       </Pane>
       <HBox layoutX="265.0" layoutY="16.0" prefHeight="27.0" prefWidth="275.0" styleClass="rounded">
          <children>
-            <TextField prefHeight="36.0" prefWidth="245.0" promptText="Search" styleClass="transparent">
+            <TextField fx:id="searchField" prefHeight="36.0" prefWidth="245.0" promptText="Search" styleClass="transparent">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
+            <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchByCatecory" prefHeight="20.0" prefWidth="20.0" styleClass="button1">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>

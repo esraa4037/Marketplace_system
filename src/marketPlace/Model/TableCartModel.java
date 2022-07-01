@@ -1,12 +1,14 @@
 package marketPlace.Model;
 
+import javafx.scene.control.CheckBox;
+
 public class TableCartModel {
 	private int productId;
 	private String productName;
 	private double price;
 	private int noOfProducts;
 	private double totalPrice;
-	
+	private CheckBox select;
 	
 	public TableCartModel(int productId, String productName, double price, int noOfProducts ,double totalPrice) {
 		this.productId = productId;
@@ -14,6 +16,7 @@ public class TableCartModel {
 		this.price = price;
 		this.totalPrice = totalPrice;
 		this.noOfProducts = noOfProducts;
+		this.select = new CheckBox();
 	}
 
 	public int getProductId() {
@@ -54,6 +57,14 @@ public class TableCartModel {
 
 	public void setNoOfProducts(int noOfProducts) {
 		this.noOfProducts = noOfProducts;
+	}
+
+	public CheckBox getSelect() {
+		return select;
+	}
+
+	public void setSelect(CheckBox select) {
+		this.select = select;
 	}
 	
 	

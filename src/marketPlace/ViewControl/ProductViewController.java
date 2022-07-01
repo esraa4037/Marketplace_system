@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -29,7 +30,11 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 	@FXML
 	private Button MyProfile;
 	@FXML
-	private String category = "All";
+	private String category;
+	@FXML
+	private TextField searchField;
+	@FXML
+	private Button searchButton;
 	@FXML
 	private ComboBox<String> categoryCombo = new ComboBox<String>();
 	@FXML
@@ -37,13 +42,13 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 	@FXML
 	private GridPane productContainer = new GridPane();
 	private List<Product> productsList;
-	
-	
+	private List<VBox> allCards = new ArrayList<VBox>();
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		super.initializeAccountName();
 		initializeCombo();
-		selectCat();
+		showAllProducts();
 	}
 
 	public void productClick(Event e) {
@@ -57,7 +62,7 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 	public void myProfileclick(Event e) {
 		super.myProfileclick(e);
 	}
-	
+
 	private void initializeCombo() {
 		ObservableList<String> list = FXCollections.observableArrayList("All", "Electronics", "Games", "Sports",
 				"Beauty Care", "Clothes", "Food");
@@ -65,38 +70,11 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 		categoryCombo.setItems(list);
 	}
 
-	public void selectCat() {
-		productsList = new ArrayList<>((new ProductController()).getGategoryList(category));
-		int column = 0;
-		int row = 1;
-		try {
-			for (Product product : productsList) {
-				FXMLLoader fxmlLoader = new FXMLLoader();
-				fxmlLoader.setLocation(getClass().getResource("/marketPlace/View/Product.fxml"));
-				VBox cardBox;
-
-				cardBox = fxmlLoader.load();
-
-				CardViewController cardViewController = fxmlLoader.getController();
-				cardViewController.setData(product);
-
-				if (column == 4) {
-					column = 0;
-					++row;
-		}
-
-				productContainer.add(cardBox, column++, row);
-				GridPane.setMargin(cardBox, new Insets(10));
-
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	public void showAllProducts() {
-
+		clearGridPane();
+		if (!allCards.isEmpty()) {
+			allCards.clear();
+		}
 		productsList = new ArrayList<>((new ProductController()).getProductsList());
 		int column = 0;
 		int row = 1;
@@ -113,9 +91,9 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 					++row;
 				}
 
+				allCards.add(cardBox);
 				productContainer.add(cardBox, column++, row);
 				GridPane.setMargin(cardBox, new Insets(10));
-//				cardLayout.getChildren().add(cardBox);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -130,12 +108,70 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 				showAllProducts();
 				return;
 			}
-			selectCat();
+
+			clearGridPane();
+			productsList = new ArrayList<>((new ProductController()).getGategoryList(category));
+			if (!allCards.isEmpty()) {
+				allCards.clear();
+			}
+			int column = 0;
+			int row = 1;
+
+			for (Product product : productsList) {
+				FXMLLoader fxmlLoader = new FXMLLoader();
+				fxmlLoader.setLocation(getClass().getResource("/marketPlace/View/Product.fxml"));
+				VBox cardBox;
+				cardBox = fxmlLoader.load();
+				CardViewController cardViewController = fxmlLoader.getController();
+				cardViewController.setData(product);
+				if (column == 4) {
+					column = 0;
+					++row;
+				}
+				allCards.add(cardBox);
+				productContainer.add(cardBox, column++, row);
+				GridPane.setMargin(cardBox, new Insets(10));
+			}
 		}
 	}
 
-	public void searchByCatecory() {
+	public void clearGridPane() {
+		for (VBox cardBox : allCards) {
+			productContainer.getChildren().remove(cardBox);
+		}
+	}
 
+	public void searchByCatecory(Event e) throws IOException {
+		if (searchField.getText() != null && searchField.getText() != "") {
+			if (category == null)
+				category = "All";
+
+			String searchedProduct = searchField.getText();
+			clearGridPane();
+			productsList = new ArrayList<>((new ProductController()).searchByCatecory(searchedProduct, category));
+			if (!allCards.isEmpty()) {
+				allCards.clear();
+			}
+			int column = 0;
+			int row = 1;
+
+			for (Product product : productsList) {
+				FXMLLoader fxmlLoader = new FXMLLoader();
+				fxmlLoader.setLocation(getClass().getResource("/marketPlace/View/Product.fxml"));
+				VBox cardBox;
+				cardBox = fxmlLoader.load();
+				CardViewController cardViewController = fxmlLoader.getController();
+				cardViewController.setData(product);
+				if (column == 4) {
+					column = 0;
+					++row;
+				}
+				allCards.add(cardBox);
+				productContainer.add(cardBox, column++, row);
+				GridPane.setMargin(cardBox, new Insets(10));
+
+			}
+		}
 	}
 
 }
