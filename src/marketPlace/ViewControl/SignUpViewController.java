@@ -41,6 +41,8 @@ public class SignUpViewController implements Initializable {
     private Label errorMessageLabel;
     @FXML
     private TextField Phone;
+    @FXML
+    private TextField Address;
     static ClientAccount cAccount = new ClientAccount();
     SignUpController Signup = new SignUpController();
     public void SignUp(Event e) throws IOException{
@@ -51,6 +53,7 @@ public class SignUpViewController implements Initializable {
         cAccount.setPostalCode(parseInt(PostalCode.getText()));
         cAccount.setEmail(email.getText());
         cAccount.setPhone(Phone.getText());
+        cAccount.setAddress(Address.getText());
        
     }
     @FXML
