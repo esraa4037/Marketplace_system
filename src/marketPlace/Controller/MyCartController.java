@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import marketPlace.Model.TableCartModel;
+import marketPlace.ViewControl.LoginViewControl;
 
 public class MyCartController {
 	
@@ -29,5 +30,11 @@ public class MyCartController {
 		return list;
 	}
 	
+	public void deleteProductsFromCartTable(String clientUserName ,List<TableCartModel> deleteItems) {
+		
+	}
 	
+	public void addProducstoOrder(String clientUserName ,List<TableCartModel> deleteItems) {
+		
+	}
 }
