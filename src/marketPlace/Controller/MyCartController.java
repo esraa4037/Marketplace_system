@@ -10,6 +10,7 @@ public class MyCartController {
 	
 	public List<TableCartModel> getCartTableContent(String clientUserName){
 		
+		
 		TableCartModel entry1 = new TableCartModel(50, "pants", 20, 1, 20);
 		TableCartModel entry2 = new TableCartModel(23, "X Box", 300, 1, 300);
 	
