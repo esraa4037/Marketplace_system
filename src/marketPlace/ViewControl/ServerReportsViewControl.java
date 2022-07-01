@@ -50,9 +50,12 @@ public class ServerReportsViewControl implements Initializable {
 	private TableColumn col3;
 	@FXML
 	private TableColumn col4;
+	//s@FXML
+	//private TextField txtSearch;
 	@FXML
-	private TextField txtSearch;
-	private String comboChoice;
+	private Button btnSearch;
+	
+	//private String comboChoice;
 	
 	ServerHomeController shcontroller = new ServerHomeController();
 	ObservableList<BestSellerProduct> bList1 = FXCollections.observableArrayList();
@@ -62,13 +65,13 @@ public class ServerReportsViewControl implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
 		ObservableList<String> list = FXCollections.observableArrayList("Best seller products in each category", "The most buying clients", "Stock of Remaining Products");
-		comboReports.setItems(list);
+		//comboReports.setItems(list);
 		col1.setVisible(false);
 		col2.setVisible(false);
 		col3.setVisible(false);
 		col4.setVisible(false);
 		
-		txtSearch.setPromptText("Search");
+		//txtSearch.setPromptText("Search");
 		
 		List<BestSellerProduct> bslist1 = (new BestSellerProductController()).getListOfBestProducts();
 		List<ProductStock> bslist5 = (new ProductStockController()).getListOfProductStock();
@@ -80,84 +83,37 @@ public class ServerReportsViewControl implements Initializable {
 		for (ProductStock entry : bslist5) {
 			bList5.add(new ProductStock(entry.getId(), entry.getName(), entry.getQuantity(), entry.getSupplierName()));
 		}
+		
+		col1.setVisible(true);
+		col1.setText("Product ID");
+		col1.setMinWidth(200);
+		col2.setVisible(true);
+		col2.setText("Product Name");
+		col2.setMinWidth(200);
+		col3.setVisible(true);
+		col3.setText("Remaining Quantity");
+		col3.setMinWidth(200);
+		col4.setVisible(true);
+		col4.setText("Supplier");
+		col4.setMinWidth(200);
+		
+		//txtSearch.setPromptText("Search with Product ID");
+		
+		
+		col1.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("id"));
+		col2.setCellValueFactory(new PropertyValueFactory<ProductStock, String>("name"));
+		col3.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("quantity"));
+		col4.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("supplierName"));
+		
+		table.setItems(FXCollections.observableArrayList());
+		table.setItems(bList5);
 
 	}
+//	public void searchClicked (Event e) {
+//		String txt = txtSearch.getText();
+//		
+//	}
 	
-	public void selectReport(Event e) {
-		comboChoice = comboReports.getSelectionModel().getSelectedItem().toString();
-		if (comboChoice.equals("Best seller products in each category")) {
-			col4.setVisible(false);
-			
-			col1.setVisible(true);
-			col1.setText("Category");
-			col1.setMinWidth(200);
-			col2.setVisible(true);
-			col2.setText("Product ID");
-			col2.setMinWidth(200);
-			col3.setVisible(true);
-			col3.setText("Product Name");
-			col3.setMinWidth(200);
-			
-			txtSearch.setPromptText("Search with Category Name");
-			
-			//TableView<BestSellerProduct> table;
-//			List<BestSellerProduct> bslist = (new BestSellerProductController()).getListOfBestProducts();
-//			
-//			for (BestSellerProduct entry : bslist) {
-//				bList1.add(new BestSellerProduct(entry.getCategory(), entry.getProductID(), entry.getProductName()));
-//			}
-			
-			
-			col1.setCellValueFactory(new PropertyValueFactory<BestSellerProduct, String>("Category"));
-			col2.setCellValueFactory(new PropertyValueFactory<BestSellerProduct, Integer>("ProductID"));
-			col3.setCellValueFactory(new PropertyValueFactory<BestSellerProduct, String>("ProductName"));
-			
-			table.setItems(FXCollections.observableArrayList());
-			table.setItems(bList1);
-		} else if (comboChoice.equals("The most buying clients")) {
-			col4.setVisible(false);
-			
-			col1.setVisible(true);
-			col1.setText("Client ID");
-			col1.setMinWidth(200);
-			col2.setVisible(true);
-			col2.setText("Client Name");
-			col2.setMinWidth(200);
-			col3.setVisible(true);
-			col3.setText("Total Number of Orders");
-			col3.setMinWidth(200);
-			txtSearch.setPromptText("Search with Client ID");
-			
-			table.setItems(FXCollections.observableArrayList());
-			
-		}
-		else if (comboChoice.equals("Stock of Remaining Products")) {
-			col1.setVisible(true);
-			col1.setText("Product ID");
-			col1.setMinWidth(200);
-			col2.setVisible(true);
-			col2.setText("Product Name");
-			col2.setMinWidth(200);
-			col3.setVisible(true);
-			col3.setText("Remaining Quantity");
-			col3.setMinWidth(200);
-			col4.setVisible(true);
-			col4.setText("Supplier");
-			col4.setMinWidth(200);
-			
-			txtSearch.setPromptText("Search with Product ID");
-			
-			
-			col1.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("id"));
-			col2.setCellValueFactory(new PropertyValueFactory<ProductStock, String>("name"));
-			col3.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("quantity"));
-			col4.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("supplierName"));
-			
-			table.setItems(FXCollections.observableArrayList());
-			table.setItems(bList5);
-			
-		}
-	}
 	
 	public void logOut(Event e) throws IOException {
 		Node node = (Node) e.getSource();

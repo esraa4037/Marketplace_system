@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ServerHomeController;
+import marketPlace.Controller.TransactionsController;
 
 public class TransactionsViewControl implements Initializable {
 	@FXML
@@ -54,10 +55,12 @@ public class TransactionsViewControl implements Initializable {
 	private Text accountName;
 	
 	ServerHomeController shcontroller = new ServerHomeController();
+	TransactionsController trcontroller = new TransactionsController();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+		
 	}
 	
 	public void logOut(Event e) throws IOException {
