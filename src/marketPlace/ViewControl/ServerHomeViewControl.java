@@ -3,6 +3,8 @@ package marketPlace.ViewControl;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -32,7 +34,11 @@ public class ServerHomeViewControl implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+            try {
+                accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+            } catch (IOException ex) {
+                Logger.getLogger(ServerHomeViewControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 	
 	public void logOut(Event e) throws IOException {

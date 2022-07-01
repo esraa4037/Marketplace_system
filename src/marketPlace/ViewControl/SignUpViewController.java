@@ -41,27 +41,39 @@ public class SignUpViewController implements Initializable {
     private Label errorMessageLabel;
     @FXML
     private TextField Phone;
-    @FXML
-    private TextField Address;
+   
+    
     static ClientAccount cAccount = new ClientAccount();
     SignUpController Signup = new SignUpController();
-    public void SignUp(Event e) throws IOException{
-        cAccount.setUserName(Username.getText());
-        cAccount.setPassword(pwfield.getText());
-        cAccount.setFirstName(FirstName.getText());
-        cAccount.setLastName(LastName.getText());
-        cAccount.setPostalCode(parseInt(PostalCode.getText()));
-        cAccount.setEmail(email.getText());
-        cAccount.setPhone(Phone.getText());
-        cAccount.setAddress(Address.getText());
-       
-    }
+    
     @FXML
     public void signUp(Event e) throws IOException {
-            if(Username.getText().isEmpty()||pwfield.getText().isEmpty()||FirstName.getText().isEmpty()){
-                errorMessageLabel.setText("Please fill the required fields!");
+            cAccount.setUserName(Username.getText());
+            cAccount.setPassword(pwfield.getText());
+            cAccount.setFirstName(FirstName.getText());
+            cAccount.setLastName(LastName.getText());
+            cAccount.setEmail(email.getText());
+            cAccount.setPhone(Phone.getText());
+            try {
+                
+                    cAccount.setPostalCode(Integer.parseInt(PostalCode.getText()));
+          
+                 } 
+            
+                catch (NumberFormatException ex) {
+                
+                    cAccount.setPostalCode(0);
+            
                 }
-            else{   
+           
+            if(Username.getText().isEmpty()||pwfield.getText().isEmpty()||FirstName.getText().isEmpty()){
+                 
+               
+                errorMessageLabel.setText("Please fill the required fields!");
+                
+                }
+            else if (!Signup.isClient(cAccount)){   
+                Signup.create_client(cAccount);
                 Node node = (Node) e.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
 
@@ -69,7 +81,10 @@ public class SignUpViewController implements Initializable {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            }    
+            }  
+            else{
+                errorMessageLabel.setText("User Already Exists");
+            }
                 
         } 
     @FXML
@@ -88,7 +103,6 @@ public class SignUpViewController implements Initializable {
        
     }
     
-    
-    
+
 
 }

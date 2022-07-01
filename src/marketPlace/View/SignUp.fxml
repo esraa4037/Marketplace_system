@@ -55,25 +55,25 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="LatName" layoutX="126.0" layoutY="134.0" prefHeight="35.0" prefWidth="308.0" />
+            <TextField fx:id="LastName" layoutX="126.0" layoutY="134.0" prefHeight="35.0" prefWidth="308.0" />
             <Text layoutX="8.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent;" text="LastName" wrappingWidth="98.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="ID" layoutX="126.0" layoutY="172.0" prefHeight="35.0" prefWidth="308.0" />
-            <Text layoutX="4.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent;" text="PostalCode" wrappingWidth="128.0">
+            <TextField fx:id="PostalCode" layoutX="126.0" layoutY="175.0" prefHeight="35.0" prefWidth="308.0" promptText="Please enter a number" />
+            <Text layoutX="4.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent;" text="PostalCode " wrappingWidth="128.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="email" layoutX="126.0" layoutY="216.0" prefHeight="35.0" prefWidth="308.0" />
+            <TextField fx:id="email" layoutX="125.0" layoutY="216.0" prefHeight="35.0" prefWidth="308.0" />
             <Text layoutX="14.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent;" text="email" wrappingWidth="98.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <TextField layoutX="126.0" layoutY="260.0" prefHeight="35.0" prefWidth="308.0" />
+            <TextField fx:id="Address" layoutX="126.0" layoutY="258.0" prefHeight="35.0" prefWidth="308.0" />
             <Text layoutX="14.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent;" text="Address" wrappingWidth="98.0">
                <font>
                   <Font name="System Bold" size="20.0" />
@@ -95,8 +95,9 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="Phone" layoutX="126.0" layoutY="298.0" prefHeight="35.0" prefWidth="308.0" />
+            <TextField fx:id="Phone" layoutX="126.0" layoutY="302.0" prefHeight="35.0" prefWidth="308.0" />
             <Label fx:id="errorMessageLabel" layoutX="121.0" layoutY="450.0" onDragDetected="#signUp" prefHeight="17.0" prefWidth="228.0" textFill="#ee0b0b" />
+            <Label fx:id="errorMessageLabel2" layoutX="132.0" layoutY="207.0" prefHeight="17.0" prefWidth="295.0" textFill="#eb0505" />
          </children>
       </AnchorPane>
    </children>
