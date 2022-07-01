@@ -1,13 +1,41 @@
 package marketPlace.Model;
 
 public class ClientAccount {
-	private int id;
+	private int id ;
 	private String userName;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private int cartId;
-	
+	private String email;
+        private String phone;
+        private int postalCode;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
+    }
+        
+        
 	public int getId() {
 		return id;
 	}
