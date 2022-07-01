@@ -8,10 +8,17 @@ public class ClientAccount {
 	private String lastName;
 	private int cartId;
 	private String email;
+<<<<<<< Updated upstream
     	private String phone;
     	private int postalCode;
     	private int balance;
     	private String address;
+=======
+    private String phone;
+    private int postalCode;
+    private int balance;
+    private String address;
+>>>>>>> Stashed changes
 
     public int getBalance() {
 		return balance;
