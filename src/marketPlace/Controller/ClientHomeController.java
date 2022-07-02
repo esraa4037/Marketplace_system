@@ -1,34 +1,41 @@
 package marketPlace.Controller;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import marketPlace.Model.ClientAccount;
+import static marketPlace.MyInfo.socket;
 
 public class ClientHomeController {
-    Statement s;
-    ConnectionDB gh=new ConnectionDB();
-    String h;
-    String e;
-     Statement t;
-      ConnectionDB w=new ConnectionDB();
-	public String getFirst(ClientAccount acc) throws SQLException {
-            s=gh.openconnection().createStatement();
-		ResultSet res=s.executeQuery("select c.Fname from client as c where c.UserName='"+acc.getUserName()+"'" );
-                while(res.next()){
-                h=res.getString("Fname");
-                }
-	return h;
-        }
-	public String getLast(ClientAccount acc) throws SQLException {
-            t=w.openconnection().createStatement();
-		ResultSet res=t.executeQuery("select c.Lname from client as c where c.UserName='"+acc.getUserName()+"'" );
-                while(res.next()){
-                e=res.getString("Lname");
-                }
-	return e;
+	public String getFirst(ClientAccount acc) throws IOException {
+//		acc.setFirstName("Esraa");
+//		return acc.getFirstName();
+                System.out.println("The get first name function was called ");
+                String username = acc.getUserName();
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "clientfname";
+                String data = request + ":" + username;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
 	}
-
-
-       
+	public String getLast(ClientAccount acc) throws IOException {
+//		acc.setLastName("Mohamed");
+//		return acc.getLastName();
+                System.out.println("The get last name function was called ");
+                String username = acc.getUserName();
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "clientlname";
+                String data = request + ":" + username;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
+	}
 }
