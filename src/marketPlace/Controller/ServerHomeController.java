@@ -1,32 +1,51 @@
 package marketPlace.Controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import marketPlace.Model.ServerAccount;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import static marketPlace.MyInfo.socket;
+
 public class ServerHomeController {
-     Statement s;
-    ConnectionDB gh=new ConnectionDB();
-    String h;
-    String e;
-     Statement t;
-      ConnectionDB w=new ConnectionDB();
-	public String getServerFirstName(ServerAccount saccount) throws SQLException {
-		 s=gh.openconnection().createStatement();
-		ResultSet res=s.executeQuery("select s.Fname from server as s where username='"+saccount.getUserName()+"'" );
-                while(res.next()){
-                h=res.getString("Fname");
-                }
-	return h;
-        
+	public String getServerFirstName(ServerAccount saccount) throws IOException {
+
+//		String fname = saccount.getFirstName();
+//		return fname;
+// send to database admin user
+// get first name from database
+
+/// get fname from database
+//
+
+                System.out.println("The get first name function was called ");
+                String username = saccount.getUserName();
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "adminfname";
+                String data = request + ":" + username;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
+                
+
 	}
-	public String getServerLastName(ServerAccount saccount) throws SQLException{
-            t=w.openconnection().createStatement();
-		ResultSet re=t.executeQuery("select s.Lname from server as s where username='"+saccount.getUserName()+"'" );
-                while(re.next()){
-                e=re.getString("Lname");
-                }
-	return e;
-        
+	public String getServerLastName(ServerAccount saccount) throws IOException {
+//		saccount.setLastName("Nabil");
+//		String lname = saccount.getLastName();
+//		return lname;
+                System.out.println("The get last name function was called ");
+                String username = saccount.getUserName();
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "adminlname";
+                String data = request + ":" + username;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
 	}
 }
