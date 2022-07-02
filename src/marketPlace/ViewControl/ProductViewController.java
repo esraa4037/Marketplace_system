@@ -2,6 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -46,9 +47,16 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		try {
 		super.initializeAccountName();
 		initializeCombo();
 		showAllProducts();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void productClick(Event e) {
@@ -70,7 +78,8 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 		categoryCombo.setItems(list);
 	}
 
-	public void showAllProducts() {
+	public void showAllProducts() throws ClassNotFoundException, SQLException {
+		try {
 		clearGridPane();
 		if (!allCards.isEmpty()) {
 			allCards.clear();
@@ -78,7 +87,7 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 		productsList = new ArrayList<>((new ProductController()).getProductsList());
 		int column = 0;
 		int row = 1;
-		try {
+		
 			for (Product product : productsList) {
 				FXMLLoader fxmlLoader = new FXMLLoader();
 				fxmlLoader.setLocation(getClass().getResource("/marketPlace/View/Product.fxml"));
@@ -99,9 +108,10 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
-	public void selectCategory(Event e) throws IOException {
+	public void selectCategory(Event e) throws IOException, ClassNotFoundException, SQLException {
 		category = categoryCombo.getSelectionModel().getSelectedItem().toString();
 		if (category != null) {
 			if (category.equals("All")) {
@@ -110,7 +120,7 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 			}
 
 			clearGridPane();
-			productsList = new ArrayList<>((new ProductController()).getGategoryList(category));
+			productsList = new ArrayList<>((new ProductController()).getproductcategory(category));
 			if (!allCards.isEmpty()) {
 				allCards.clear();
 			}
@@ -148,7 +158,12 @@ public class ProductViewController extends ClientHomeViewControl implements Init
 
 			String searchedProduct = searchField.getText();
 			clearGridPane();
-			productsList = new ArrayList<>((new ProductController()).searchByCatecory(searchedProduct, category));
+			try {
+				productsList = new ArrayList<>((new ProductController()).searchByCatecory(searchedProduct, category));
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			if (!allCards.isEmpty()) {
 				allCards.clear();
 			}
