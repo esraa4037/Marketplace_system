@@ -1,80 +1,104 @@
 package marketPlace.Controller;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import static marketPlace.MyInfo.socket;
+
+/**
+ *
+ * @author Nadas
+ */
 public class MyProfileController {
-
-	    Statement s;
-    ConnectionDB gh=new ConnectionDB();
-    int h;
-	Statement s1;
-    ConnectionDB gh1=new ConnectionDB();
-     Statement s2;
-    ConnectionDB gh2=new ConnectionDB();
-     Statement s3;
-    ConnectionDB gh3=new ConnectionDB();
-     Statement s4;
-    ConnectionDB gh4=new ConnectionDB();
-     Statement s5;
-    ConnectionDB gh5=new ConnectionDB();
-    String h1;
-    String h2;
-    String h3;
-    String h4;
-    int h5;
-	public int getBalance(String username) throws SQLException {
-		 s=gh.openconnection().createStatement();
-		ResultSet res=s.executeQuery("select balance from billinginfo as b,client as c where b.ClientID=c.ClientID and c.UserName='"+username+"' " );
-                while(res.next()){
-                h=res.getInt("balance");
-                }
-	return h;
-        
-	}
-
-	public String getFirstName(String userName) throws SQLException {
+    
+	public int getBalance(String clientUserName) throws IOException{
+            System.out.println("The get balance function was called ");
+               
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "getbalance";
+                String data = request + ":" + clientUserName;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return Integer.parseInt(serverResponse);
 		
-		 s1=gh1.openconnection().createStatement();
-		ResultSet res1=s1.executeQuery("select c.Fname from client as c where c.UserName='"+userName+"' " );
-                while(res1.next()){
-                h1=res1.getString("Fname");
-                }
-	return h1;
 	}
 
-	public String getEmail(String userName) throws SQLException {
-		 s2=gh2.openconnection().createStatement();
-		ResultSet res2=s2.executeQuery("select c.Email from client as c where c.UserName='"+userName+"' " );
-                while(res2.next()){
-                h2=res2.getString("Email");
-                }
-	return h2;
+	public String getFirstName(String userName) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("The get first name function was called ");
+              
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "clientfirstname";
+                String data = request + ":" + userName;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
 	}
 
-	public String getPhone(String userName) throws SQLException {
-		 s3=gh3.openconnection().createStatement();
-		ResultSet res3=s3.executeQuery("select c.Phone from client as c where c.UserName='"+userName+"' " );
-                while(res3.next()){
-                h3=res3.getString("Phone");
-                }
-	return h3;
+	public String getEmail(String userName) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("The get email function was called ");
+              
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "email";
+                String data = request + ":" + userName;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
 	}
 
-	public String getAddress(String userName) throws SQLException {
-		 s4=gh4.openconnection().createStatement();
-		ResultSet res4=s4.executeQuery("select c.Address from client as c where c.UserName='"+userName+"' " );
-                while(res4.next()){
-                h4=res4.getString("Address");
-                }
-	return h4;
+	public String getPhone(String userName) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("The get phone function was called ");
+              
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "phone";
+                String data = request + ":" + userName;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
 	}
 
-	public int getPostalCode(String userName) throws SQLException {
-		 s5=gh5.openconnection().createStatement();
-		ResultSet res5=s5.executeQuery("select c.PostalCode from client as c where c.UserName='"+userName+"' " );
-                while(res5.next()){
-                h5=res5.getInt("PostalCode");
-                }
-	return h5;
+	public String getAddress(String userName) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("The get address function was called ");
+              
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "address";
+                String data = request + ":" + userName;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
+	}
+
+	public String getPostalCode(String userName) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("The get postal function was called ");
+               
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String request = "getpostal";
+                String data = request + ":" + userName;                               
+                System.out.println(data);
+                out.println(data);
+                String serverResponse = input.readLine();
+                System.out.println("serverResponse is:" + serverResponse );                       
+                return serverResponse;
 	}
 }
