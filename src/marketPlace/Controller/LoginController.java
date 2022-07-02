@@ -12,11 +12,20 @@ import static marketPlace.MyInfo.socket;
 //---------------------
 public class LoginController {
 	
-	public boolean isClient(ClientAccount account) throws IOException {
-		if (account.getUserName().equals("esraa") && account.getPassword().equals("1234")) {
-			return true;
-		}
-		return false;
+	Statement st;
+        ConnectionDB g=new ConnectionDB();
+        Statement sta;
+        ConnectionDB aa=new ConnectionDB() ;
+        //ResultSet r;
+	public boolean isClient(ClientAccount account) throws SQLException {
+		st=g.openconnection().createStatement();
+               
+	ResultSet res=st.executeQuery("select * from client where Username='"+account.getUserName()+"'and pass='"+account.getPassword()+"'");
+           
+                if(res.next())
+                    return true;
+	return false;
+        
 
 		
 //		String user = account.getUserName();
@@ -40,11 +49,14 @@ public class LoginController {
 //        }
 	}
 	
-	public boolean isServer(ServerAccount account) throws IOException {
-		if (account.getUserName().equals("admin") && account.getPassword().equals("1234")) {
-			return true;
-		}
-		return false;
+	public boolean isServer(ClientAccount account)throws SQLException {
+		
+
+		sta=aa.openconnection().createStatement();
+		ResultSet resu=sta.executeQuery("select * from server where username='"+account.getUserName()+"'and pass='"+account.getPassword()+"'");
+                if(resu.next())
+                    return true;
+	return false;
 		
 		
 //		String user = account.getUserName();
