@@ -52,7 +52,7 @@ Statement siu;
                 
 	}
 	
-	//public void addProducstoOrder(String clientUserName ,List<TableCartModel> deleteItems) {
+	public void addProducstoOrder(String clientUserName ,List<TableCartModel> deleteItems, int i) {
 		
-	//}
+	}
 }
