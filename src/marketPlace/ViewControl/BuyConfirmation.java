@@ -28,9 +28,9 @@ public class BuyConfirmation {
 		if (enoughBalance() != -1) {
 			// delete from cart
 			List<TableCartModel> deleteItems = deleteSelectedAndCloseWindow();
-			(new MyCartController()).deleteProductsFromCartTable(LoginViewControl.cAccount.getUserName(), deleteItems);
+			(new MyCartController()).deleteProductsFromCartTable(LoginViewControl.cAccount.getUserName(), deleteItems, deleteItems.size());
 			// add to order
-			(new MyCartController()).addProducstoOrder(LoginViewControl.cAccount.getUserName(), deleteItems);
+			(new MyCartController()).addProducstoOrder(LoginViewControl.cAccount.getUserName(), deleteItems, deleteItems.size());
 		} else {
 			JOptionPane.showMessageDialog(null, "You don't have enough balance.", "Error", JOptionPane.ERROR_MESSAGE);
 
