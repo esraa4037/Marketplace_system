@@ -2,6 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -17,13 +18,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-//import marketPlace.Controller.BestSellerProductController;
-//import marketPlace.Controller.ProductStockController;
+import marketPlace.Controller.BestSellerProductController;
+import marketPlace.Controller.ProductStockController;
 import marketPlace.Controller.ServerHomeController;
-//import marketPlace.Model.BestSellerProduct;
-//import marketPlace.Model.ProductStock;
+import marketPlace.Model.BestSellerProduct;
+import marketPlace.Model.ProductStock;
 
 public class ServerReportsViewControl implements Initializable {
 
@@ -37,7 +40,6 @@ public class ServerReportsViewControl implements Initializable {
 	private ComboBox comboReports;
 	@FXML
 	private Text accountName;
-	
 	@FXML
 	private TableView table;
 	@FXML
@@ -56,12 +58,12 @@ public class ServerReportsViewControl implements Initializable {
 	//private String comboChoice;
 	
 	ServerHomeController shcontroller = new ServerHomeController();
-//	ObservableList<BestSellerProduct> bList1 = FXCollections.observableArrayList();
-//	ObservableList<ProductStock> bList5 = FXCollections.observableArrayList();
+	ObservableList<BestSellerProduct> bList1 = FXCollections.observableArrayList();
+	ObservableList<ProductStock> bList5 = FXCollections.observableArrayList();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
 		ObservableList<String> list = FXCollections.observableArrayList("Best seller products in each category", "The most buying clients", "Stock of Remaining Products");
 		//comboReports.setItems(list);
 		col1.setVisible(false);
@@ -71,16 +73,16 @@ public class ServerReportsViewControl implements Initializable {
 		
 		//txtSearch.setPromptText("Search");
 		
-//		List<BestSellerProduct> bslist1 = (new BestSellerProductController()).getListOfBestProducts();
-//		List<ProductStock> bslist5 = (new ProductStockController()).getListOfProductStock();
+		List<BestSellerProduct> bslist1 = (new BestSellerProductController()).getListOfBestProducts();
+		List<ProductStock> bslist5 = (new ProductStockController()).getListOfProductStock();
 		
 		
-//		for (BestSellerProduct entry : bslist1) {
-//			bList1.add(new BestSellerProduct(entry.getCategory(), entry.getProductID(), entry.getProductName()));
-//		}
-//		for (ProductStock entry : bslist5) {
-//			bList5.add(new ProductStock(entry.getId(), entry.getName(), entry.getQuantity(), entry.getSupplierName()));
-//		}
+		for (BestSellerProduct entry : bslist1) {
+			bList1.add(new BestSellerProduct(entry.getCategory(), entry.getProductID(), entry.getProductName()));
+		}
+		for (ProductStock entry : bslist5) {
+			bList5.add(new ProductStock(entry.getId(), entry.getName(), entry.getQuantity(), entry.getSupplierName()));
+		}
 		
 		col1.setVisible(true);
 		col1.setText("Product ID");
@@ -98,13 +100,13 @@ public class ServerReportsViewControl implements Initializable {
 		//txtSearch.setPromptText("Search with Product ID");
 		
 		
-//		col1.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("id"));
-//		col2.setCellValueFactory(new PropertyValueFactory<ProductStock, String>("name"));
-//		col3.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("quantity"));
-//		col4.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("supplierName"));
-//		
-//		table.setItems(FXCollections.observableArrayList());
-//		table.setItems(bList5);
+		col1.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("id"));
+		col2.setCellValueFactory(new PropertyValueFactory<ProductStock, String>("name"));
+		col3.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("quantity"));
+		col4.setCellValueFactory(new PropertyValueFactory<ProductStock, Integer>("supplierName"));
+		
+		table.setItems(FXCollections.observableArrayList());
+		table.setItems(bList5);
 
 	}
 //	public void searchClicked (Event e) {

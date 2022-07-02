@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +19,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ServerHomeController;
 import marketPlace.Controller.TransactionsController;
+
 import marketPlace.Model.obj;
 
 public class TransactionsViewControl implements Initializable {
@@ -63,7 +66,7 @@ public class TransactionsViewControl implements Initializable {
 //	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
 		obList = (new TransactionsController()).historyOfClient(LoginViewControl.cAccount.getUserName());
 		colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderid"));
 		colProductId.setCellValueFactory(new PropertyValueFactory<>("productid"));
@@ -108,3 +111,4 @@ public class TransactionsViewControl implements Initializable {
 	}
 
 }
+

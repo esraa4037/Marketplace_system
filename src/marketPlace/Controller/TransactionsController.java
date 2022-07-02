@@ -44,7 +44,7 @@ public class TransactionsController {
 		return obList;
 	}
 	
-	public ObservableList<obj> historyTransaction(String clientUserName) {
+	public ObservableList<obj> historyTransaction() {
 		ObservableList<obj> obList = FXCollections.observableArrayList();
 		obj obj = new obj();
 		obj.setOrderid(0);
@@ -89,6 +89,4 @@ public class TransactionsController {
 		
 		return obList;
 	}
-	
-	
-}
+

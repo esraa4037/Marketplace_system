@@ -16,6 +16,7 @@
 <AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="1025.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="marketPlace.ViewControl.ClientOrdersHistoryViewControl">
    <children>
       <VBox layoutX="227.0" layoutY="34.0" prefHeight="483.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
          <children>
             <Label prefHeight="24.0" prefWidth="307.0" text="Transactions History">
                <font>
@@ -31,12 +32,15 @@
                   <TableColumn fx:id="colProductId" prefWidth="90.0" text="Product ID" />
                   <TableColumn fx:id="colProductName" prefWidth="199.0" text="Product Name" />
                   <TableColumn fx:id="colQuantity" prefWidth="85.0" text="Quantity" />
+
                   <TableColumn fx:id="colDate" prefWidth="104.0" text="Date" />
                   <TableColumn fx:id="colSupplier" prefWidth="229.0" text="Supplier" />
+
               </columns>
             </TableView>
          </children>
       </VBox>
+
       <Pane prefHeight="575.0" prefWidth="227.0" style="-fx-background-color: #FF8C33;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane layoutY="153.0" prefHeight="59.0" prefWidth="227.0" style="-fx-background-color: #ffa500;">

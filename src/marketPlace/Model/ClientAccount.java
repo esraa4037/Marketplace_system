@@ -1,19 +1,21 @@
 package marketPlace.Model;
 
 public class ClientAccount {
-	private int id;
+	private int id ;
 	private String userName;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private int cartId;
 	private String email;
+
 	private String phone;
 	private int postalCode;
 	private int balance;
 	private String address;
 
 	public int getBalance() {
+
 		return balance;
 	}
 
@@ -30,6 +32,7 @@ public class ClientAccount {
 	}
 
 	public String getEmail() {
+
 		return email;
 	}
 

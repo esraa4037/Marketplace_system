@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ServerHomeController;
@@ -31,7 +32,7 @@ public class ServerHomeViewControl implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
 	}
 	
 	public void logOut(Event e) throws IOException {
@@ -64,3 +65,4 @@ public class ServerHomeViewControl implements Initializable {
 		stage.show();
 	}
 }
+
