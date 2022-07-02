@@ -67,7 +67,7 @@ public class TransactionsViewControl implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
-		obList = (new TransactionsController()).historyOfClient(LoginViewControl.cAccount.getUserName());
+		obList = (new TransactionsController()).historyTransaction();
 		colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderid"));
 		colProductId.setCellValueFactory(new PropertyValueFactory<>("productid"));
 		colProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
