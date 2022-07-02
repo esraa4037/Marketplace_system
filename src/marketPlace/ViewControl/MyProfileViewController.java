@@ -3,6 +3,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -68,7 +69,9 @@ public class MyProfileViewController extends ClientHomeViewControl implements In
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		try {
 		super.initializeAccountName();
+		 
 		String userName = LoginViewControl.cAccount.getUserName();
 		int balance = (new MyProfileController()).getBalance(userName);
 		txtBalance.setText(String.valueOf(balance));
@@ -87,7 +90,9 @@ public class MyProfileViewController extends ClientHomeViewControl implements In
 		txtphone.setText((new MyProfileController()).getPhone(userName));
 		txtaddress.setText((new MyProfileController()).getAddress(userName));
 		txtpostalcode.setText(String.valueOf((new MyProfileController()).getPostalCode(userName)));
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void productClick(Event e) {
@@ -121,7 +126,7 @@ public class MyProfileViewController extends ClientHomeViewControl implements In
 		stage.show();
 	}
 	
-	public void depositClicked (Event e) {
+	public void depositClicked (Event e) throws SQLException {
 		if (txtDeposit.getText().isBlank() || Integer.parseInt(txtDeposit.getText()) <= 0) {
 			lblMsg.setText("Please enter a valid value");
 		} else {
