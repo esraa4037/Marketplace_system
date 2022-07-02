@@ -1,6 +1,6 @@
 package marketPlace.Model;
 
-public class Obj {
+public class obj {
 
 	private int orderid;
 	private String ordereddate;
@@ -16,11 +16,11 @@ public class Obj {
 	private double totalprice;
 
 	
-	public Obj() {
+	public obj() {
 		
 	}
 	
-	public Obj(int orderid, String ordereddate, int productid, String name, int quantity, String supplierName,
+	public obj(int orderid, String ordereddate, int productid, String name, int quantity, String supplierName,
 			int clientid, String firstName, String lastName, int product_quantity, int id, double totalprice) {
 		super();
 		this.orderid = orderid;

@@ -2,13 +2,13 @@ package marketPlace.Controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import marketPlace.Model.Obj;
+import marketPlace.Model.obj;
 
 public class TransactionsController {
 
-	public ObservableList<Obj> historyOfClient(String clientUserName) {
-		ObservableList<Obj> obList = FXCollections.observableArrayList();
-		Obj obj = new Obj();
+	public ObservableList<obj> historyOfClient(String clientUserName) {
+		ObservableList<obj> obList = FXCollections.observableArrayList();
+		obj obj = new obj();
 		obj.setOrderid(0);
 		obj.setProductid(697);
 		obj.setName("Galaxy A-51");
@@ -44,9 +44,9 @@ public class TransactionsController {
 		return obList;
 	}
 	
-	public ObservableList<Obj> historyTransaction(String clientUserName) {
-		ObservableList<Obj> obList = FXCollections.observableArrayList();
-		Obj obj = new Obj();
+	public ObservableList<obj> historyTransaction(String clientUserName) {
+		ObservableList<obj> obList = FXCollections.observableArrayList();
+		obj obj = new obj();
 		obj.setOrderid(0);
 		obj.setProductid(697);
 		obj.setName("Galaxy A-51");

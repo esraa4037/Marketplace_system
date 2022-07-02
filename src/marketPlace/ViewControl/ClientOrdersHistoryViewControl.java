@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 import marketPlace.Controller.ClientHomeController;
 import marketPlace.Controller.MyCartController;
 import marketPlace.Controller.TransactionsController;
-import marketPlace.Model.Obj;
+import marketPlace.Model.obj;
 import marketPlace.Model.TableCartModel;
 
 public class ClientOrdersHistoryViewControl implements Initializable {
@@ -44,20 +44,20 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 	@FXML
 	private Button MyCart;
 	@FXML
-	private TableView<Obj> table;
+	private TableView<obj> table;
 	@FXML
-	private TableColumn<Obj, Integer> colOrderId;
+	private TableColumn<obj, Integer> colOrderId;
 	@FXML
-	private TableColumn<Obj, Integer> colProductId;
+	private TableColumn<obj, Integer> colProductId;
 	@FXML
-	private TableColumn<Obj, String> colProductName;
+	private TableColumn<obj, String> colProductName;
 	@FXML
-	private TableColumn<Obj, Integer> colQuantity;
+	private TableColumn<obj, Integer> colQuantity;
 	@FXML
-	private TableColumn<Obj, String> colDate;
+	private TableColumn<obj, String> colDate;
 	@FXML
-	private TableColumn<Obj, String> colSupplier;
-	ObservableList<Obj> obList = FXCollections.observableArrayList();
+	private TableColumn<obj, String> colSupplier;
+	ObservableList<obj> obList = FXCollections.observableArrayList();
 
 	
 	private SimpleStringProperty acName = new SimpleStringProperty(" ");

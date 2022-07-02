@@ -22,7 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ServerHomeController;
 import marketPlace.Controller.TransactionsController;
-import marketPlace.Model.Obj;
+import marketPlace.Model.obj;
 
 public class TransactionsViewControl implements Initializable {
 	@FXML
@@ -38,24 +38,24 @@ public class TransactionsViewControl implements Initializable {
 	@FXML
 	private Text accountName;
 	@FXML
-	private TableView<Obj> table;
+	private TableView<obj> table;
 	@FXML
-	private TableColumn<Obj, String> colClientName;
+	private TableColumn<obj, String> colClientName;
 	@FXML
-	private TableColumn<Obj, Integer> colClientId;
+	private TableColumn<obj, Integer> colClientId;
 	@FXML
-	private TableColumn<Obj, Integer> colOrderId;
+	private TableColumn<obj, Integer> colOrderId;
 	@FXML
-	private TableColumn<Obj, Integer> colProductId;
+	private TableColumn<obj, Integer> colProductId;
 	@FXML
-	private TableColumn<Obj, Integer> colProductName;
+	private TableColumn<obj, Integer> colProductName;
 	@FXML
-	private TableColumn<Obj, Integer> colQuantity;
+	private TableColumn<obj, Integer> colQuantity;
 	@FXML
-	private TableColumn<Obj, String> colDate;
+	private TableColumn<obj, String> colDate;
 	@FXML
-	private TableColumn<Obj, String> colSupplier;
-	ObservableList<Obj> obList = FXCollections.observableArrayList();
+	private TableColumn<obj, String> colSupplier;
+	ObservableList<obj> obList = FXCollections.observableArrayList();
 
 //	
 //	ServerHomeController shcontroller = new ServerHomeController();
