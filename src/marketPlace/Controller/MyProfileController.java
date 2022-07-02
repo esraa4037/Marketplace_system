@@ -1,9 +1,20 @@
 package marketPlace.Controller;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class MyProfileController {
 
-	public int getBalance(String clientUserName){
-		return 900;
+	    Statement s;
+    ConnectionDB gh=new ConnectionDB();
+    int h;
+	public int getBalance(String username) throws SQLException {
+		 s=gh.openconnection().createStatement();
+		ResultSet res=s.executeQuery("select balance from billinginfo as b,client as c where b.ClientID=c.ClientID and c.UserName='"+username+"' " );
+                while(res.next()){
+                h=res.getInt("balance");
+                }
+	return h;
+        
 	}
 
 	public String getFirstName(String userName) {
