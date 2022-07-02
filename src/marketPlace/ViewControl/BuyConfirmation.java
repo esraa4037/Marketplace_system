@@ -1,5 +1,6 @@
 package marketPlace.ViewControl;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class BuyConfirmation {
 		MyCartViewController.confirmationStage.close();
 	}
 
-	public void clickYes(Event e) {
+	public void clickYes(Event e) throws SQLException {
 		if (enoughBalance() != -1) {
 			// delete from cart
 			List<TableCartModel> deleteItems = deleteSelectedAndCloseWindow();
@@ -38,7 +39,7 @@ public class BuyConfirmation {
 
 	}
 
-	public int enoughBalance() {
+	public int enoughBalance() throws SQLException {
 		ObservableList<TableCartModel> obList = MyCartViewController.obList;
 		int totalPrice = 0;
 		int balance = (new MyProfileController()).getBalance(LoginViewControl.cAccount.getUserName());
