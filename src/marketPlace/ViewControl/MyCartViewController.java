@@ -2,6 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -51,6 +52,7 @@ public class MyCartViewController extends ClientHomeViewControl {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		try {
 		super.initializeAccountName();
 		buy();
 		List<TableCartModel> cartList = (new MyCartController())
@@ -67,6 +69,9 @@ public class MyCartViewController extends ClientHomeViewControl {
 		columnSelect.setCellValueFactory(new PropertyValueFactory<>("select"));
 
 		table.setItems(obList);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void buy() {
