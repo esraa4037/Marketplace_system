@@ -2,6 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -56,7 +57,7 @@ public class LoginViewControl implements Initializable {
 		
 	}
 
-	public void isSign(Event e) throws IOException {
+	public void isSign(Event e) throws IOException, SQLException {
 		if (userMode == null) {
 
 			errorMassageLabel.setText("You should select user mode");
