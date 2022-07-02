@@ -9,7 +9,8 @@ public class TableCartModel {
 	private int noOfProducts;
 	private double totalPrice;
 	private CheckBox select;
-	
+	public TableCartModel(){
+        }
 	public TableCartModel(int productId, String productName, double price, int noOfProducts ,double totalPrice) {
 		this.productId = productId;
 		this.productName = productName;
