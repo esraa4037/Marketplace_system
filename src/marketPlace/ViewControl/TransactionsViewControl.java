@@ -2,6 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -61,13 +62,19 @@ public class TransactionsViewControl implements Initializable {
 	ObservableList<obj> obList = FXCollections.observableArrayList();
 
 //	
-//	ServerHomeController shcontroller = new ServerHomeController();
+	ServerHomeController shcontroller = new ServerHomeController();
 //	TransactionsController trcontroller = new TransactionsController();
 //	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+		try {
+			accountName.setText(shcontroller.getServerFirstName(LoginViewControl.sAccount)+ " " + shcontroller.getServerLastName(LoginViewControl.sAccount));
+		
 		obList = (new TransactionsController()).historyTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderid"));
 		colProductId.setCellValueFactory(new PropertyValueFactory<>("productid"));
 		colProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
