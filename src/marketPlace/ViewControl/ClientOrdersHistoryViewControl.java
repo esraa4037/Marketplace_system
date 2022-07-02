@@ -2,7 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
-
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,7 +30,6 @@ import marketPlace.Controller.MyCartController;
 import marketPlace.Controller.TransactionsController;
 import marketPlace.Model.obj;
 import marketPlace.Model.TableCartModel;
-
 
 public class ClientOrdersHistoryViewControl implements Initializable {
 	@FXML
@@ -64,31 +63,40 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 	private TableColumn<obj, String> colSupplier;
 	ObservableList<obj> obList = FXCollections.observableArrayList();
 
-	
 	private SimpleStringProperty acName = new SimpleStringProperty(" ");
 	private ClientHomeController clcontroller = new ClientHomeController();
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		String firstName = clcontroller.getFirst(LoginViewControl.cAccount);
-		String lastName = clcontroller.getLast(LoginViewControl.cAccount);
-		String name = firstName + " " + lastName;
-		acName.set(name);
-		accountName.textProperty().bind(acName);
+		try {
+			String firstName;
 
-		obList = (new TransactionsController()).historyOfClient(LoginViewControl.cAccount.getUserName());
-		colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderid"));
-		colProductId.setCellValueFactory(new PropertyValueFactory<>("productid"));
-		colProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
-		colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-		colDate.setCellValueFactory(new PropertyValueFactory<>("ordereddate"));
-		colSupplier.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
+			firstName = clcontroller.getFirst(LoginViewControl.cAccount);
 
-		table.setItems(obList);
+			String lastName;
+			lastName = clcontroller.getLast(LoginViewControl.cAccount);
+
+			String name = firstName + " " + lastName;
+			acName.set(name);
+			accountName.textProperty().bind(acName);
+
+			obList = (new TransactionsController()).historyOfClient(LoginViewControl.cAccount.getUserName());
+			colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderid"));
+			colProductId.setCellValueFactory(new PropertyValueFactory<>("productid"));
+			colProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
+			colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+			colDate.setCellValueFactory(new PropertyValueFactory<>("ordereddate"));
+			colSupplier.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
+
+			table.setItems(obList);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
-	
-	public void backToClientHome (Event e) throws IOException {
+
+	public void backToClientHome(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
 
@@ -97,8 +105,8 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	public void productClick (Event e) throws IOException {
+
+	public void productClick(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
 
@@ -107,8 +115,8 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	public void myProfileclick (Event e) throws IOException {
+
+	public void myProfileclick(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
 
@@ -117,7 +125,8 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	public void myCartclick (Event e) throws IOException {
+
+	public void myCartclick(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
 
@@ -126,17 +135,15 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	public void logOut (Event e) throws IOException {
+
+	public void logOut(Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
-		
+
 		Parent root = FXMLLoader.load(getClass().getResource("/marketPlace/View/Login.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
 
-
 }
-
