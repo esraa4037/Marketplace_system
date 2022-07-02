@@ -26,6 +26,7 @@ public class ProductController {
               person.setQuantity(res.getInt("Quantity"));
                person.setCategoryId(res.getInt("CategoryID"));
                person.setPrice(res.getInt("Price"));
+		  person.setImageSrc(res.getString("Picture"));
                // TODO add your handling code here:
            // byte [] imageBytes;
             //String productId = name.getText();
@@ -53,7 +54,7 @@ public class ProductController {
             return getProductsList();
         else{
        s1=s2.openconnection().createStatement();
-        ResultSet res=s1.executeQuery("select p.ProductName,p.Price,p.Quantity from product as p,category as c where p.CategoryID=c.ID and c.Name='"+categoryname+"' ");
+        ResultSet res=s1.executeQuery("select p.ProductName,p.Price,p.Quantity,p.Picture from product as p,category as c where p.CategoryID=c.ID and c.Name='"+categoryname+"' ");
         List<Product> Product = new ArrayList<Product>();
          
           while (res.next()) {
@@ -64,7 +65,7 @@ public class ProductController {
               person.setQuantity(res.getInt("Quantity"));
               // person.setCategoryId(res.getInt("CategoryID"));
                person.setPrice(res.getInt("Price"));
-                
+                person.setImageSrc(res.getString("Picture"));
                 Product.add(person); 
             }
         
@@ -82,7 +83,7 @@ public List<Product> searchByCatecory(String item, String category) throws SQLEx
     ConnectionDB WE3 =new ConnectionDB();
 		if (category.equals("All")) {
                      BT=WE4.openconnection().createStatement();
-        ResultSet we=BT.executeQuery("select p.ProductName,p.Price,p.Quantity from product as p where p.ProductName like '%%' '"+item+"' '%%' " );
+        ResultSet we=BT.executeQuery("select p.ProductName,p.Price,p.Quantity,p.Picture from product as p where p.ProductName like '%%' '"+item+"' '%%' " );
         List<Product> Product1 = new ArrayList<Product>();
           
           while (we.next()) {
@@ -93,7 +94,7 @@ public List<Product> searchByCatecory(String item, String category) throws SQLEx
               person1.setQuantity(we.getInt("Quantity"));
               // person.setCategoryId(res.getInt("CategoryID"));
                person1.setPrice(we.getInt("Price"));
-                
+                person1.setImageSrc(we.getString("Picture"));
                 Product1.add(person1); 
             }
         
@@ -103,7 +104,7 @@ public List<Product> searchByCatecory(String item, String category) throws SQLEx
 			
 		 else {
 		        BT1=WE3.openconnection().createStatement();
-        ResultSet ui=BT1.executeQuery("select p.ProductName,p.Price,p.Quantity from product as p,category as c where p.CategoryID=c.ID  and c.Name='"+category+"' " + "and p.ProductName like '%%' '"+item+"' '%%' ");
+        ResultSet ui=BT1.executeQuery("select p.ProductName,p.Price,p.Quantity,p.Picture from product as p,category as c where p.CategoryID=c.ID  and c.Name='"+category+"' " + "and p.ProductName like '%%' '"+item+"' '%%' ");
         List<Product> Product2 = new ArrayList<Product>();
           
           while (ui.next()) {
@@ -114,7 +115,7 @@ public List<Product> searchByCatecory(String item, String category) throws SQLEx
               person2.setQuantity(ui.getInt("Quantity"));
               // person.setCategoryId(res.getInt("CategoryID"));
                person2.setPrice(ui.getInt("Price"));
-                
+                person2.setImageSrc(ui.getString("Picture"));
                 Product2.add(person2); 
             }
         
