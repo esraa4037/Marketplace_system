@@ -2,9 +2,14 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +18,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import marketPlace.Controller.ClientHomeController;
+import marketPlace.Controller.MyCartController;
+import marketPlace.Controller.TransactionsController;
+import marketPlace.Model.obj;
+import marketPlace.Model.TableCartModel;
+
 
 public class ClientOrdersHistoryViewControl implements Initializable {
 	@FXML
@@ -35,8 +48,22 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 	@FXML
 	private Button MyCart;
 	@FXML
-	private TableView table;
-	
+
+	private TableView<obj> table;
+	@FXML
+	private TableColumn<obj, Integer> colOrderId;
+	@FXML
+	private TableColumn<obj, Integer> colProductId;
+	@FXML
+	private TableColumn<obj, String> colProductName;
+	@FXML
+	private TableColumn<obj, Integer> colQuantity;
+	@FXML
+	private TableColumn<obj, String> colDate;
+	@FXML
+	private TableColumn<obj, String> colSupplier;
+	ObservableList<obj> obList = FXCollections.observableArrayList();
+
 	
 	private SimpleStringProperty acName = new SimpleStringProperty(" ");
 	private ClientHomeController clcontroller = new ClientHomeController();
@@ -48,8 +75,17 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 		String name = firstName + " " + lastName;
 		acName.set(name);
 		accountName.textProperty().bind(acName);
-		
-		
+
+		obList = (new TransactionsController()).historyOfClient(LoginViewControl.cAccount.getUserName());
+		colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderid"));
+		colProductId.setCellValueFactory(new PropertyValueFactory<>("productid"));
+		colProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+		colDate.setCellValueFactory(new PropertyValueFactory<>("ordereddate"));
+		colSupplier.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
+
+		table.setItems(obList);
+
 	}
 	
 	public void backToClientHome (Event e) throws IOException {
@@ -101,6 +137,6 @@ public class ClientOrdersHistoryViewControl implements Initializable {
 		stage.show();
 	}
 
-	
-	
+
 }
+

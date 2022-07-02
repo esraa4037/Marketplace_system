@@ -14,7 +14,8 @@ public class ClientAccount {
 	private int balance;
 	private String address;
 
-    public int getBalance() {
+	public int getBalance() {
+
 		return balance;
 	}
 
@@ -31,63 +32,74 @@ public class ClientAccount {
 	}
 
 	public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+		return email;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public int getPostalCode() {
-        return postalCode;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
-    }
-        
-        
+	public int getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(int postalCode) {
+		this.postalCode = postalCode;
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int clinetId) {
 		this.id = clinetId;
 	}
+
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public int getCartId() {
 		return cartId;
 	}
+
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}

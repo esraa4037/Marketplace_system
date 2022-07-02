@@ -1,35 +1,33 @@
 package marketPlace.Controller;
 
-import marketPlace.Model.ClientAccount;
-import marketPlace.Model.MyProfile;
-
 public class MyProfileController {
-	//MyProfile pro = new MyProfile("Esraa", "Mohamed", "esraa", "1234", "es@xyz.com", "01012345678", "xyz", 4321, 400);
-	
-	public int getBalance(String userName) {
-//		prof.setBalance(pro.getBalance());
-		
+
+	public int getBalance(String clientUserName){
 		return 900;
 	}
+
 	public String getFirstName(String userName) {
+		// TODO Auto-generated method stub
 		return "Esraa";
 	}
-	public String getLastName(String userName) {
-		return "Mohamed";
-	}
-	public String getUserName(String userName) {
-		return "esraa";
-	}
+
 	public String getEmail(String userName) {
-		return "es@xyz.com";
+		// TODO Auto-generated method stub
+		return "esraa@gmail.com";
 	}
+
 	public String getPhone(String userName) {
-		return "01012345678";
+		// TODO Auto-generated method stub
+		return "01154638421";
 	}
+
 	public String getAddress(String userName) {
-		return "xyz";
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public int getPostalCode(String userName) {
-		return 4321;
+
+	public String getPostalCode(String userName) {
+		// TODO Auto-generated method stub
+		return "4578";
 	}
 }

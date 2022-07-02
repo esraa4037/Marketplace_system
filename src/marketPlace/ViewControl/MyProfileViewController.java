@@ -1,5 +1,6 @@
 package marketPlace.ViewControl;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import marketPlace.Controller.ClientHomeController;
 import marketPlace.Controller.MyProfileController;
 
 public class MyProfileViewController extends ClientHomeViewControl implements Initializable{
+
 	@FXML
 	private Button product;
 	@FXML
@@ -78,12 +80,14 @@ public class MyProfileViewController extends ClientHomeViewControl implements In
 		accountName.textProperty().bind(acName);
 		
 		lblMsg.setText("");
-		txtname.setText((new MyProfileController()).getFirstName(userName)+ " " + (new MyProfileController()).getLastName(userName));
-		txtusername.setText((new MyProfileController()).getUserName(userName));
+		txtname.setText((new MyProfileController()).getFirstName(userName)+ " " + (new MyProfileController()).getFirstName(userName));
+		txtusername.setText((new MyProfileController()).getFirstName(userName));
+
 		txtemail.setText((new MyProfileController()).getEmail(userName));
 		txtphone.setText((new MyProfileController()).getPhone(userName));
 		txtaddress.setText((new MyProfileController()).getAddress(userName));
 		txtpostalcode.setText(String.valueOf((new MyProfileController()).getPostalCode(userName)));
+
 	}
 	
 	public void productClick(Event e) {
@@ -97,6 +101,7 @@ public class MyProfileViewController extends ClientHomeViewControl implements In
 	public void myProfileclick(Event e) {
 		super.myProfileclick(e);
 	}
+
 	public void viewHistoryClicked (Event e) throws IOException {
 		Node node = (Node) e.getSource();
 		Stage stage = (Stage) node.getScene().getWindow();
@@ -128,5 +133,4 @@ public class MyProfileViewController extends ClientHomeViewControl implements In
 			lblMsg.setText("Deposit added successfully!");
 		}
 	}
-	
 }
