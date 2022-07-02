@@ -2,6 +2,7 @@ package marketPlace.ViewControl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -34,10 +35,15 @@ public class ClientHomeViewControl implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		initializeAccountName();
+		try {
+			initializeAccountName();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void initializeAccountName() {
+	public void initializeAccountName() throws SQLException {
 		String firstName = clcontroller.getFirst(LoginViewControl.cAccount);
 		String lastName = clcontroller.getLast(LoginViewControl.cAccount);
 		String name = firstName + " " + lastName;
