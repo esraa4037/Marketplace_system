@@ -9,6 +9,10 @@ import java.io.PrintWriter;
 import marketPlace.Model.ClientAccount;
 import marketPlace.Model.ServerAccount;
 import static marketPlace.MyInfo.socket;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 //---------------------
 public class LoginController {
 	
@@ -49,7 +53,7 @@ public class LoginController {
 //        }
 	}
 	
-	public boolean isServer(ClientAccount account)throws SQLException {
+	public boolean isServer(ServerAccount account)throws SQLException {
 		
 
 		sta=aa.openconnection().createStatement();
